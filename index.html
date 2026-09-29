@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pádel Urba</title>
+<meta name="description" content="Reservas de las pistas de pádel de Altos de Valdavia III">
+<meta name="theme-color" content="#1f5fbf">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Pádel Urba">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+html,body{margin:0;height:100%;background:#e9f0f7}
+@media (prefers-color-scheme:dark){html,body{background:#08172b}}
+body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}
+iframe{display:block;border:0;width:100%;height:100%}
+</style>
+</head>
+<body>
+<iframe id="app" title="Pádel Urba" allow="clipboard-write"></iframe>
+<script>
+var APP="https://script.google.com/macros/s/AKfycbwMvd-lI5NOr4Jai7kXUjsiniY0q_V_3z_4JmoC4LFVOhPPKWWZOA-Wpg1747S-yGhrzg/exec";
+var dev="";
+try{dev=localStorage.getItem("padel-dev")||"";}catch(e){}
+if(!/^[0-9a-f]{32}$/.test(dev)){var a=new Uint8Array(16);crypto.getRandomValues(a);dev=Array.prototype.map.call(a,function(b){return("0"+b.toString(16)).slice(-2)}).join("");try{localStorage.setItem("padel-dev",dev)}catch(e){}}
+var q=new URLSearchParams(location.search),p=new URLSearchParams();
+if(q.get("admin"))p.set("admin",q.get("admin"));
+p.set("d",dev);
+document.getElementById("app").src=APP+"?"+p.toString();
+</script>
+</body>
+</html>
